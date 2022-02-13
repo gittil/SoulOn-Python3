@@ -1,4 +1,3 @@
-# SoulOn-Python3
 
 Este Repositorio e' referente ao Curso de Python 3 da SoulCode Academy
 
