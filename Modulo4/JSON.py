@@ -8,3 +8,31 @@ spark = SparkSession.builder.appName('firstSession')\
             .config('spark.shuffle.partitions',1)\
                 .getOrCreate()
 
+schema = StructType([
+      StructField("RecordNumber",IntegerType()),
+      StructField("Zipcode",IntegerType()),
+      StructField("ZipCodeType",StringType()),
+      StructField("City",StringType()),
+      StructField("State",StringType()),
+      StructField("LocationType",StringType()),
+      StructField("Lat",DoubleType()),
+      StructField("Long",DoubleType()),
+      StructField("Xaxis",IntegerType()),
+      StructField("Yaxis",DoubleType()),
+      StructField("Zaxis",DoubleType()),
+      StructField("WorldRegion",StringType()),
+      StructField("Country",StringType()),
+      StructField("LocationText",StringType()),
+      StructField("Location",StringType()),
+      StructField("Decommisioned",BooleanType()),
+      StructField("TaxReturnsFiled",StringType()),
+      StructField("EstimatedPopulation",IntegerType()),
+      StructField("TotalWages",IntegerType()),
+      StructField("Notes",StringType())
+  ])
+
+df = spark.read.schema(schema)\
+    .json('E:\python_soul_on\zipcodes.json')
+
+df.printSchema()
+df.show()
