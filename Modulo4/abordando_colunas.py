@@ -2,6 +2,7 @@ import findspark
 findspark.init()
 
 from pyspark.sql import SparkSession
+from pyspark.sql import Row
 
 spark = SparkSession.builder \
     .master("local") \
@@ -12,8 +13,7 @@ spark = SparkSession.builder \
 sc = spark.sparkContext
 
 rdd = sc.textFile("/home/douglas/soulcode/SoulOn-Python3/Modulo4/Salary_Data.csv")
+rdd = rdd.map(lambda line: line.split(","))
 
-print("Concluido com Sucesso")
-
-
-
+df = rdd.map(lambda line: Row(AnosExperiencia=line[0], Salario=line[1])).toDF()
+df.show()
