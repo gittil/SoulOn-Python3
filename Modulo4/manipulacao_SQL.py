@@ -34,7 +34,11 @@ schema = StructType([
 df = spark.read.schema(schema)\
     .json('/home/douglas/soulcode/SoulOn-Python3/Modulo4/zipcodes.json')
 
-df.printSchema()
-df.show()
+df.registerTempTable('zipcodes')
+#output = spark.sql("SELECT * FROM zipcodes")
 
+#output = spark.sql("SELECT RecordNumber,City, Notes  FROM zipcodes")
 
+output = spark.sql("SELECT RecordNumber FROM zipcodes WHERE RecordNumber > 10")
+
+output.show()
