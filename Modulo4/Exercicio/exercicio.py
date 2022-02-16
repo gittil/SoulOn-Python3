@@ -62,3 +62,4 @@ df1.describe('capital_gain').show()
 
 
 
+
