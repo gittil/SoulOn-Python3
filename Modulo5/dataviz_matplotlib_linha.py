@@ -16,4 +16,3 @@ ax.set_title('Iris Dataset')
 ax.legend()
 
 
-#https://meet.google.com/qse-inxa-ejo
