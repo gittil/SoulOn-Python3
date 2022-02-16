@@ -27,6 +27,11 @@ colunas = ['AnosExperiencia','Salario']
 
 df = converterColuna(df,colunas,FloatType())
 
+
+df = df.withColumn('AnosExperiencia', df['AnosExperiencia'].cast(FloatType()))
+
+
+
 # aplicando filtro
 #df.filter(df['Salario']>5000).show()
 
